@@ -1,0 +1,67 @@
+{
+    "budget": {
+        "label" : "Budget traveller",
+        "Hard_limit": {
+            "max_price_eur": 30,
+            "max_transfer": 2,
+            "changable required": false,
+            "min_lugage_kg": 0
+        },
+        "weights": {
+            "price": 60,
+            "duartion": 15,
+            "departure_time": 15,
+            "flexibility": 10
+        },
+        "prefered_departure": "08:00"
+    },
+    "buisniss": {
+        "label": "Buisniss traveller",
+        "hard_limit":{
+            "max_price_eur": 80,
+            "max_transfer": 0,
+            "changable required": true,
+            "min_lugage_kg": 0
+        },
+        "weights": {
+            "price": 10,
+            "duartion": 45,
+            "departure_time": 30,
+            "flexibility": 15
+        },
+        "prefered_departure": "07:00"
+    },
+        "flexible": {
+        "label": "flexibility focused tourist",
+        "hard_limit":{
+            "max_price_eur": 50,
+            "max_transfer": 1,
+            "changable required": true,
+            "min_lugage_kg": 25
+        },
+        "weights": {
+            "price": 25,
+            "duartion": 15,
+            "departure_time": 10,
+            "flexibility": 50
+        },
+        "prefered_departure": "10:00"
+    },
+        "eco": {
+        "label": "Enviormental focused traveller",
+        "hard_limit":{
+            "max_price_eur": 60,
+            "max_transfer": 1,
+            "changable required": false,
+            "min_lugage_kg": 0
+        },
+        "weights": {
+            "price": 20,
+            "duartion": 15,
+            "departure_time": 10,
+            "flexibility": 15,
+            "co2":40
+        },
+        "prefered_departure": "09:00"
+    }
+}
