@@ -5,7 +5,12 @@ from datetime import datetime
 
 ##helper function
 def yes_no(text):
-    return text == "yes"
+    if text == "yes":
+        return True
+    if text== "no":
+        return False
+    raise ValueError(f"expected yes/no, got '{text}'")
+
 
 
 ## global variables and datasets

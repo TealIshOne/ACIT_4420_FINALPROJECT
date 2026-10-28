@@ -12,19 +12,19 @@ class InvalidFileError(BusBidderError):
         self.file_name=file_name
 
         message=(
-            f"fil '{path}'/'{file_name}' not found"
+            f"file '{path}'/'{file_name}' not found"
         )
         super().__init__(message)
 
 
 class InvalidIdentifierError(BusBidderError):
-    def __init__(self, identifier, id_type, expected_pattern):
+    def __init__(self, identifier, id_type, expected_pattern=None):
         self.identifier = identifier
         self.id_type= id_type
         self.expected_pattern=expected_pattern
         message=(
             f"invalid '{id_type}': '{identifier}' "
-            f"does not match expected patern {expected_pattern}"
+            f"does not match expected pattern {expected_pattern}"
         )
         super().__init__(message)
 
@@ -44,10 +44,25 @@ class BookingError(BusBidderError):
     '''
     trouble in booking, to few seats, etc
     '''
-    pass
+
+    def __init__(self, booking_issue, reason):
+        self.booking_issue=booking_issue
+        self.reason = reason
+        message=(
+            f"booking '{booking_issue}' : {reason}"
+        )
+        super().__init__(message)
+    
 
 class WeightsError(BusBidderError):
     '''
     weights dont add up to 100
     '''
-    pass
+    def __init__(self, weight, reason):
+        self.weight=weight
+        self.reason = reason
+        message=(
+            f"weight '{weight}' : {reason}"
+        )
+        super().__init__(message)
+    

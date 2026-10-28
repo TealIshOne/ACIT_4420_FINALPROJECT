@@ -1,4 +1,4 @@
-offer_id,company_id,destination_id,departure,arrival,duration_min,price_eur,transfers,luggage_kg,changeable,refundable,seats_available,rating,co2_kg
+offer_id,company_id,destination_id,departure,arrival,duration_min,price_eur,transfers,luggage_kg,changeable,refundable,seats_available,stars,co2_kg
 OF-9001,solruta,MAL,2026-07-12T08:30,2026-07-12T15:00,390,-12.00,0,20,no,no,20,3.8,29.2
 OF-9002,camino,PAR,2026-07-12T09:00,2026-07-12T14:00,300,40.00,0,25,yes,no,10,4.5,22.5
 OF-9003,verdebus,SEV,2026-07-32T10:30,2026-07-32T16:00,330,33.00,0,20,yes,yes,12,4.3,13.6
