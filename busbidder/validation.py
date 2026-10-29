@@ -5,6 +5,9 @@ from busbidder.errors import BusBidderError,InvalidOfferError, InvalidIdentifier
 # libs
 import re
 from datetime import datetime
+import logging
+
+logger =logging.getLogger(__name__)
 
 
 OFFER_ID_CODE=re.compile(r"^OF-\d{4}$")
@@ -196,6 +199,7 @@ def validate_offers(rows):
             valid.append(offer)
         except BusBidderError as err:
             rejected.append((row,str(err)))
+            logger.warning("rejection: %s", err)
 
     return valid, rejected
 

@@ -7,38 +7,36 @@ from pathlib import Path
 PROF_DIR=Path("config")
 CSV_DIR=Path("data")
 
-# files=[
-#     PROF_DIR/"profiles.json",
-#     CSV_DIR/"companies.csv",
-#     CSV_DIR/"destinations.csv",
-#     CSV_DIR/"offers_bad.csv",
-#     CSV_DIR/"offers.csv"
-# ]
 
 
-# files=call_files(["bad"])
-
-
-
-# def test_rows(files):
-#     '''
-#     due to the way the offers_bad.csv file is set up we can do a standard run through of the full file,
-#       eahc row should fail at different check points, except one, as it needs to be tested with the offers.csv
-#       to catch duplicates
-#     '''
-
-files = call_files(["bad"])
+files = call_files(["bad", "off"])
 
 def test_bad_file():
     valid, reject = validate_offers(files["bad"])
-    for row, reason in reject:                      # MOVED up
+    for row, reason in reject:                     
         print(reason)
-    print([offer.offer_id for offer in valid])      # MOVED up
+    print([offer.offer_id for offer in valid])    
     assert len(reject) == 13
     assert len(valid) == 1
 
 
+print("-"*50)
 
+def test_bad_file():
+    valid, reject = validate_offers(files["off"])
+    for row, reason in reject:                      
+        print(reason)
+    print([offer.offer_id for offer in valid])     
+    assert len(reject) == 0
+    assert len(valid) == 50
 
+print("-"*50)
 
+def test_both_files():
+    valid, reject = validate_offers(files["off"] + files["bad"])
+    for row, reason in reject:                      
+        print(reason)
+    print([offer.offer_id for offer in valid])     
+    assert len(reject) == 14
+    assert len(valid) == 50
 

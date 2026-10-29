@@ -1,4 +1,4 @@
-offer_id,company_id,destination_id,departure,arrival,duration_min,price_eur,transfers,luggage_kg,changeable,refundable,seats_available,rating,co2_kg
+offer_id,company_id,destination_id,departure,arrival,duration_min,price_eur,transfers,luggage_kg,changeable,refundable,seats_available,stars,co2_kg
 OF-0001,solruta,BAR,2026-07-12T10:15,2026-07-12T19:10,535,28.34,1,20,no,no,20,3.9,40.1
 OF-0002,solruta,CAD,2026-07-12T07:00,2026-07-12T15:55,535,30.73,1,20,no,no,37,4.0,40.1
 OF-0003,costalink,COR,2026-07-12T11:00,2026-07-12T17:30,390,28.81,1,30,no,no,23,4.1,27.8
