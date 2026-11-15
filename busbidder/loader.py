@@ -6,16 +6,10 @@ import json
 import csv 
 from pathlib import Path
 
-PROF_DIR=Path("config")
-CSV_DIR=Path("data")
+BASE_DIR=Path(__file__).resolve().parent.parent 
+PROF_DIR=BASE_DIR/"config"
+CSV_DIR=BASE_DIR/"data"
 
-files=[
-    PROF_DIR/"profiles.json",
-    CSV_DIR/"companies.csv",
-    CSV_DIR/"destinations.csv",
-    CSV_DIR/"offers_bad.csv",
-    CSV_DIR/"offers.csv"
-]
 
 
 def call_files(call_key_list=None):
@@ -37,7 +31,7 @@ def call_files(call_key_list=None):
         raise ValueError("call_files needs a list of keys")
 
     if "prof" in call_key_list:
-        with open(PROF_DIR/"profiles.json") as f:
+        with open(PROF_DIR/"profiles.json", encoding="utf-8") as f:
             results["prof"] = json.load(f)
 
     if "comp" in call_key_list:
@@ -58,5 +52,5 @@ def call_files(call_key_list=None):
 
     return results
 
-#print(call_files(["off", "xyz"]))
+
 

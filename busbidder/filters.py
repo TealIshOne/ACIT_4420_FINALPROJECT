@@ -16,27 +16,27 @@ def passes_hard_limits(offers, traveller):
     """
     Filters offers based on the traveller's hard limits.
     """
-    hard_limits_passed=[]
+    offers_passed=[]
     for key, limit in traveller.hard_limits.items():
         if limit is None:   
             continue 
         if key == "max_price_eur":
             passed  = [offer for offer in offers if offer.price_eur <= limit]
-            hard_limits_passed.append(passed)
+            offers_passed.append(passed)
         elif key == "max_transfers":
             passed = [offer for offer in offers if offer.transfers <= limit]
-            hard_limits_passed.append(passed)
+            offers_passed.append(passed)
         elif key == "min_luggage_kg":
             passed  = [offer for offer in offers if offer.luggage_kg >= limit]
-            hard_limits_passed.append(passed)
+            offers_passed.append(passed)
         elif key == "changeable_required":
             if limit:
                 passed = [offer for offer in offers if offer.changeable]
-                hard_limits_passed.append(passed)
+                offers_passed.append(passed)
 
-    if not hard_limits_passed:
+    if not offers_passed:
         return offers
-    hard_limits_passed = list(set.intersection(*map(set, hard_limits_passed)))
+    hard_limits_passed = list(set.intersection(*map(set, offers_passed)))
     return hard_limits_passed
 
 
@@ -49,7 +49,7 @@ def weights_score(offers, traveller):
     uses offers from hard limits filter, and weights from traveller class
     """
     if not traveller.weights:
-        return offers
+        return {}
 
     weighted_offers = {}
     durations = [offer.duration_min for offer in offers]

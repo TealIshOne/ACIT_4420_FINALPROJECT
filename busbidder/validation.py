@@ -55,7 +55,7 @@ ALL_COMPANY_IDS=[
     ]
 def check_types(row):
     '''
-    checks if type convertion is sucsessfull
+    checks if type convertion is sucsessful
     '''
     try:
         return Offer.from_row(row)
@@ -159,7 +159,7 @@ def check_transfers(offer):
 
 def check_duration(offer):
     '''
-    checks if duration matches arrival-destination
+    checks if duration matches arrival-departure
     '''
     departure =offer.departure
     arrival = offer.arrival
@@ -169,7 +169,21 @@ def check_duration(offer):
         raise InvalidOfferError(offer.offer_id, f"duration {duration} does not match travel time {dur_check}")
 
 
+def check_co2(offer):
+    '''
+    checks for negative co2
+    '''
+    co2=offer.co2_kg
+    if co2<0:
+        raise InvalidOfferError(offer.offer_id, f"negative co2: {co2}")
 
+def check_luggage(offer):
+    '''
+    checks for negative luggage
+    '''
+    luggage=offer.luggage_kg
+    if luggage<0:
+        raise InvalidOfferError(offer.offer_id, f"negative luggage: {luggage}")
 
 ### ---------------summerising function --------------------###
 
@@ -185,7 +199,6 @@ def validate_offers(rows):
         try:
             check_columns(row)
             check_id_format(row)
-            check_unique_id(row,seen_ids)
             check_destination(row)
             check_company(row)
             offer= check_types(row)
@@ -195,6 +208,9 @@ def validate_offers(rows):
             check_seats(offer)
             check_transfers(offer)
             check_duration(offer)
+            check_co2(offer)
+            check_luggage(offer)
+            check_unique_id(row,seen_ids)
 
             valid.append(offer)
         except BusBidderError as err:

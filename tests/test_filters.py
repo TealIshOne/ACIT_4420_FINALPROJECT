@@ -31,10 +31,11 @@ def test_bad_profile_no_limits():
     filtered_offers = passes_hard_limits(valid, no_limits)
     assert len(filtered_offers) == len(valid) and len(filtered_offers) > 0
 
-def test_no_valid_offers():
+def test_bad_offers_too_high_offer():
     valid,rejected =validate_offers(files["bad"])
     filtered_offers = passes_hard_limits(valid, traveller)
     assert len(filtered_offers) == 0
+    assert len(valid) == 1
 
 def test_empty_offers():
     filtered_offers = passes_hard_limits([], traveller)
