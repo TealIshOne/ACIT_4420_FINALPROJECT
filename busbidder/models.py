@@ -31,7 +31,19 @@ OFFER_TYPES={
     "co2_kg": float
 }
 
+WEIGHT_TYPES={
+    "price": float,
+    "flexibility": float,
+    "departure_time": float,
+    "duration": float,
+    "co2": float
+}
 
+HARD_LIMITS_TYPES={
+    "max_price_eur": float,
+    "max_transfers": int,
+    "min_luggage_kg": int,
+    "changeable_required": bool,}
 
 @dataclass
 class Company:
@@ -44,7 +56,7 @@ class Destination:
     destination_id: str
     name: str
 
-@dataclass
+@dataclass (eq=False)
 class Offer:
     offer_id: str
     company_id: str
@@ -72,8 +84,42 @@ class Offer:
 
 @dataclass
 class Traveller:
-    pass
+    profile_name: str
+    hard_limits: dict
+    weights: dict
+    preferred_departure: str
 
-@dataclass
+    def weights_ok(self):
+        for key in self.weights:
+            if key not in WEIGHT_TYPES:
+                raise ValueError(f"invalid weight: {key}")
+        return sum(self.weights.values()) == 100
+
+    def hard_limits_ok(self):
+        for key in self.hard_limits:
+            if key not in HARD_LIMITS_TYPES:
+                raise ValueError(f"invalid hard limit: {key}")
+        return True
+
+    def departure_time_ok(self):
+        try:
+            datetime.strptime(self.preferred_departure, "%H:%M")
+            return True
+        except ValueError:
+            raise ValueError(f"invalid departure time: {self.preferred_departure}")
+    @classmethod
+    def from_profile(cls, profile_name, profiles):
+        profile=profiles[profile_name]
+        return cls(
+            profile_name=profile_name,
+            hard_limits=profile["hard_limits"],
+            weights=profile["weights"],
+            preferred_departure=profile["preferred_departure"]
+        )
+
+
 class Booking:
-    pass
+    def __init__(self, offer: Offer, traveller: Traveller):
+        self.offer = offer
+        self.traveller = traveller
+        self.booking_time = datetime.now()

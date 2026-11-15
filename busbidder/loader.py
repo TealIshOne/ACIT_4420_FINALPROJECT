@@ -25,7 +25,7 @@ def call_files(call_key_list=None):
     good_keys=[]
 
     if call_key_list is None:
-        return "you failed to enter a calling list"
+        raise ValueError("call_files needs a list of keys")
 
     for item in call_key_list:
         if item  in VALID_KEYS:
@@ -34,7 +34,7 @@ def call_files(call_key_list=None):
     call_key_list=good_keys      
 
     if len(call_key_list) == 0: 
-        return "error"
+        raise ValueError("call_files needs a list of keys")
 
     if "prof" in call_key_list:
         with open(PROF_DIR/"profiles.json") as f:
@@ -58,5 +58,5 @@ def call_files(call_key_list=None):
 
     return results
 
-print(call_files(["off", "xyz"]))
+#print(call_files(["off", "xyz"]))
 
