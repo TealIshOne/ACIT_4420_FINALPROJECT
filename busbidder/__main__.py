@@ -1,22 +1,41 @@
 import logging
-from busbidder.models import Traveller
-from busbidder.loader import call_files
-
-traveller = Traveller.from_profile("budget", call_files(["prof"])["prof"])
-print(traveller)
-print(traveller.weights_ok(), traveller.hard_limits_ok(), traveller.departure_time_ok())
-
-# logging.basicConfig(
-#     filename="logs/busbidder_rejects.log",
-#     level=logging.INFO,
-#     format="%(asctime)s %(levelname)s %(message)s",
-# )
+from busbidder.menu import menu
+from busbidder.errors import BusBidderError
+from pathlib import Path
 
 
-# from busbidder.loader import call_files           
-# from busbidder.validation import validate_offers   
+LOG_DIR = Path(__file__).resolve().parent.parent / "logs"
+LOG_DIR.mkdir(exist_ok=True)
+                             
 
-# files = call_files(["bad"])                 TEST       
+logging.basicConfig(
+    filename=LOG_DIR/"busbidder.log",
+    level=logging.INFO,
+    format="%(asctime)s %(levelname)s %(message)s",
+)
 
 
 
+rejects_logger = logging.getLogger("rejects")
+rejects_handler = logging.FileHandler(LOG_DIR/"busbidder_reject_offers.log", encoding="utf-8")
+rejects_handler.setFormatter(logging.Formatter("%(asctime)s %(levelname)s %(message)s"))
+rejects_logger.addHandler(rejects_handler)
+rejects_logger.propagate=False
+
+
+booking_logger=logging.getLogger("bookings")
+booking_handler=logging.FileHandler(LOG_DIR/"booking.log", encoding="utf-8")
+booking_handler.setFormatter(logging.Formatter("%(asctime)s %(levelname)s %(message)s"))
+booking_logger.addHandler(booking_handler)
+booking_logger.propagate=False
+
+
+
+if __name__ == "__main__":  
+    try:             
+        menu() 
+    except BusBidderError as err:
+        print(f"sorry, the program has stopped: {err}")
+        logging.error(err)
+    except KeyboardInterrupt:
+        print("GOODBYE!")

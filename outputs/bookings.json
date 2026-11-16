@@ -1,0 +1,82 @@
+[
+    {
+        "booking_ref": "BK-C04FED0F",
+        "booking_time": "2026-11-16T23:51:50.504662",
+        "offer_id": "OF-0023",
+        "price_eur": 25.09,
+        "changeable": false,
+        "refundable": false
+    },
+    {
+        "booking_ref": "BK-23739B0E",
+        "booking_time": "2026-11-17T00:01:04.334873",
+        "offer_id": "OF-0023",
+        "price_eur": 25.09,
+        "changeable": false,
+        "refundable": false
+    },
+    {
+        "booking_ref": "BK-F4E9CB38",
+        "booking_time": "2026-11-17T00:03:00.410843",
+        "offer_id": "OF-0003",
+        "price_eur": 28.81,
+        "changeable": false,
+        "refundable": false
+    },
+    {
+        "booking_ref": "BK-E6D1D351",
+        "booking_time": "2026-11-17T00:03:17.887412",
+        "offer_id": "OF-0003",
+        "price_eur": 28.81,
+        "changeable": false,
+        "refundable": false
+    },
+    {
+        "booking_ref": "BK-92FFF834",
+        "booking_time": "2026-11-17T00:17:35.474520",
+        "offer_id": "OF-0021",
+        "price_eur": 23.76,
+        "changeable": false,
+        "refundable": false
+    },
+    {
+        "booking_ref": "BK-AD4FCEAB",
+        "booking_time": "2026-11-17T00:17:46.068157",
+        "offer_id": "OF-0021",
+        "price_eur": 23.76,
+        "changeable": false,
+        "refundable": false
+    },
+    {
+        "booking_ref": "BK-F2066ECB",
+        "booking_time": "2026-11-17T00:21:30.800189",
+        "offer_id": "OF-0021",
+        "price_eur": 23.76,
+        "changeable": false,
+        "refundable": false
+    },
+    {
+        "booking_ref": "BK-67F015D8",
+        "booking_time": "2026-11-17T00:21:32.858897",
+        "offer_id": "OF-0021",
+        "price_eur": 23.76,
+        "changeable": false,
+        "refundable": false
+    },
+    {
+        "booking_ref": "BK-EA1ADF02",
+        "booking_time": "2026-11-17T00:21:39.364083",
+        "offer_id": "OF-0023",
+        "price_eur": 25.09,
+        "changeable": false,
+        "refundable": false
+    },
+    {
+        "booking_ref": "BK-825BF89F",
+        "booking_time": "2026-11-17T00:21:45.801042",
+        "offer_id": "OF-0021",
+        "price_eur": 23.76,
+        "changeable": false,
+        "refundable": false
+    }
+]

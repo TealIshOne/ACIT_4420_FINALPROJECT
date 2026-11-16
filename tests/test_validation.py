@@ -22,13 +22,13 @@ def test_bad_file():
 
 print("-"*50)
 
-def test_bad_file():
+def test_off_file():
     valid, reject = validate_offers(files["off"])
     for row, reason in reject:                      
         print(reason)
     print([offer.offer_id for offer in valid])     
-    assert len(reject) == 0
-    assert len(valid) == 50
+    assert len(reject) == 4
+    assert len(valid) == 46
 
 print("-"*50)
 
@@ -37,6 +37,6 @@ def test_both_files():
     for row, reason in reject:                      
         print(reason)
     print([offer.offer_id for offer in valid])     
-    assert len(reject) == 14
-    assert len(valid) == 50
+    assert len(reject) == 18
+    assert len(valid) == 46
 

@@ -1,11 +1,9 @@
 
 
-from busbidder.loader import call_files
-from busbidder.models import Traveller
-from busbidder.validation import validate_offers
-from datetime import datetime
-from busbidder.booking_travler_info import Travlers_choices, booking_choices, book_offer
 
+
+from busbidder.booking_travler_info import Travlers_choices, booking_choices, book_offer
+from busbidder.errors import BookingError
 
 
 
@@ -44,12 +42,16 @@ def menu():
             the user can then choose to book one of the offers, or go back to the main menu.
             '''
             if traveller is None:
-                print("please choose a travell profile first (menu option 1)")
+                print("please choose a travle profile first (menu option 1)")
                 continue
             chosen=booking_choices(traveller)
-            booking= book_offer(chosen)
-
-            print(f"Boking confirmed! refference code: {booking.booking_ref}")
+            if chosen is None:
+                continue
+            try:
+                booking= book_offer(chosen)
+                print(f"Booking confirmed! refference code: {booking.booking_ref}")
+            except BookingError as err:
+                print(f"sorry, booking failed: {err}")
 
         elif choice == "3":
             print("Exiting the program.")
@@ -57,5 +59,6 @@ def menu():
 
         else:
             print(f"Invalid choice. Please enter a number between 1 and {len(menu_start)}.")
+
 
 

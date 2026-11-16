@@ -6,6 +6,8 @@ import json
 import csv 
 from pathlib import Path
 
+from busbidder.errors import InvalidFileError
+
 BASE_DIR=Path(__file__).resolve().parent.parent 
 PROF_DIR=BASE_DIR/"config"
 CSV_DIR=BASE_DIR/"data"
@@ -31,24 +33,48 @@ def call_files(call_key_list=None):
         raise ValueError("call_files needs a list of keys")
 
     if "prof" in call_key_list:
-        with open(PROF_DIR/"profiles.json", encoding="utf-8") as f:
-            results["prof"] = json.load(f)
+        try:
+            with open(PROF_DIR/"profiles.json", encoding="utf-8") as f:
+                results["prof"] = json.load(f)
+        except FileNotFoundError as err:
+            missing=Path(err.filename)
+            raise InvalidFileError(missing.parent, missing.name) from err
+        except json.JSONDecodeError as err:
+            raise InvalidFileError(PROF_DIR, "profiles.json, broken file") from err
+
 
     if "comp" in call_key_list:
-        with open(CSV_DIR / "companies.csv", newline="", encoding="utf-8") as f: 
-            results["comp"] = list(csv.DictReader(f))
+        try:
+            with open(CSV_DIR / "companies.csv", newline="", encoding="utf-8") as f: 
+                results["comp"] = list(csv.DictReader(f))
+        except FileNotFoundError as err:
+            missing=Path(err.filename)
+            raise InvalidFileError(missing.parent, missing.name) from err
+        
 
     if "dest" in call_key_list:
-        with open(CSV_DIR / "destinations.csv", newline="", encoding="utf-8") as f: 
-            results["dest"] = list(csv.DictReader(f))
+        try:
+            with open(CSV_DIR / "destinations.csv", newline="", encoding="utf-8") as f: 
+                results["dest"] = list(csv.DictReader(f))
+        except FileNotFoundError as err:
+            missing=Path(err.filename)
+            raise InvalidFileError(missing.parent, missing.name) from err
 
     if "bad" in call_key_list:
-        with open(CSV_DIR / "offers_bad.csv", newline="", encoding="utf-8") as f: 
-            results["bad"] = list(csv.DictReader(f))
+        try:
+            with open(CSV_DIR / "offers_bad.csv", newline="", encoding="utf-8") as f: 
+                results["bad"] = list(csv.DictReader(f))
+        except FileNotFoundError as err:
+            missing=Path(err.filename)
+            raise InvalidFileError(missing.parent, missing.name) from err
 
     if "off" in call_key_list:
-        with open(CSV_DIR / "offers.csv", newline="", encoding="utf-8") as f: 
-            results["off"] = list(csv.DictReader(f))
+        try:
+            with open(CSV_DIR / "offers.csv", newline="", encoding="utf-8") as f: 
+                results["off"] = list(csv.DictReader(f))
+        except FileNotFoundError as err:
+            missing=Path(err.filename)
+            raise InvalidFileError(missing.parent, missing.name) from err
 
     return results
 

@@ -50,30 +50,53 @@ def weights_score(offers, traveller):
     """
     if not traveller.weights:
         return {}
+    
 
     weighted_offers = {}
+    score_details={}
     durations = [offer.duration_min for offer in offers]
     co2_values = [offer.co2_kg for offer in offers]
     prices = [offer.price_eur for offer in offers]
 
     for offer in offers:
         score = 0
+        details={}
         for key, weight in traveller.weights.items():
             if key == "price":
-                score += (1 - map_to_unit(offer.price_eur, min(prices), max(prices))) * weight
+                price_score = (1 - map_to_unit(offer.price_eur, min(prices), max(prices))) * weight
+                score += price_score
+                details["price"]=price_score
+
             elif key == "flexibility":
-                score += (1 if offer.changeable else 0) * weight
+                flex_score=(1 if offer.changeable else 0) * weight
+                score += flex_score
+                details["flexibility"]=flex_score
+
             elif key == "duration":
-                score += (1- map_to_unit(offer.duration_min, min(durations), max(durations))) * weight
+                duration_score= (1- map_to_unit(offer.duration_min, min(durations), max(durations))) * weight
+                score += duration_score
+                details["duration"]=duration_score
+
             elif key == "co2":
-                score += (1 - map_to_unit(offer.co2_kg, min(co2_values), max(co2_values))) * weight
+                co2_score= (1 - map_to_unit(offer.co2_kg, min(co2_values), max(co2_values))) * weight
+                score += co2_score
+                details["co2"]=co2_score
+
             elif key == "departure_time":
                 date_str = offer.departure.strftime("%Y/%m/%d") 
                 preferred_departure_time = datetime.strptime(date_str + " " + traveller.preferred_departure, "%Y/%m/%d %H:%M")
                 gap=abs((preferred_departure_time - offer.departure).total_seconds())/60
 
-                score += (1-map_to_unit(gap, 0, 1440)) * weight
+                departure_score =(1-map_to_unit(gap, 0, 1440)) * weight
+
+                score += departure_score
+                details["departure_time"]=departure_score
+
         weighted_offers[offer.offer_id] = score
 
+        score_details[offer.offer_id]=details
 
-    return weighted_offers
+    
+
+
+    return weighted_offers, score_details

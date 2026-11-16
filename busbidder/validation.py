@@ -7,7 +7,7 @@ import re
 from datetime import datetime
 import logging
 
-logger =logging.getLogger(__name__)
+rejects_logger =logging.getLogger("rejects")
 
 
 OFFER_ID_CODE=re.compile(r"^OF-\d{4}$")
@@ -144,7 +144,7 @@ def check_seats(offer):
     checks for negative seats,
     '''
     remaining_seats=offer.seats_available
-    if remaining_seats<0:
+    if remaining_seats<1:
         raise InvalidOfferError(offer.offer_id, f"negative seats: {remaining_seats}")
 
 
@@ -185,6 +185,8 @@ def check_luggage(offer):
     if luggage<0:
         raise InvalidOfferError(offer.offer_id, f"negative luggage: {luggage}")
 
+
+
 ### ---------------summerising function --------------------###
 
 def validate_offers(rows):
@@ -215,7 +217,7 @@ def validate_offers(rows):
             valid.append(offer)
         except BusBidderError as err:
             rejected.append((row,str(err)))
-            logger.warning("rejection: %s", err)
+            rejects_logger.warning("rejection: %s", err)
 
     return valid, rejected
 

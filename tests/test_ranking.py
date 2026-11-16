@@ -19,7 +19,7 @@ def test_ranking_order():
     """
     valid,rejected =validate_offers(files["off"]+files["bad"])
     filtered_offers = passes_hard_limits(valid, traveller)
-    scored_offers= weights_score(filtered_offers, traveller)
+    scored_offers, _= weights_score(filtered_offers, traveller)
     ranked_offers = rank_offers(scored_offers)
     scores = [score for offer_id, score in ranked_offers]
 
