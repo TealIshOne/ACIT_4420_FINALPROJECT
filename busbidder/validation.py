@@ -53,6 +53,17 @@ ALL_COMPANY_IDS=[
     "verdebus",
     "nochevia"
     ]
+
+
+##decorator
+
+OFFER_CHECKS = []
+
+def offer_checks(func):
+    OFFER_CHECKS.append(func)
+    return func
+
+
 def check_types(row):
     '''
     checks if type convertion is sucsessful
@@ -109,7 +120,7 @@ def check_company(row):
     if comp_id not in ALL_COMPANY_IDS:
         raise InvalidOfferError(row["offer_id"], f"unknown company: {comp_id}")
 
-
+@offer_checks
 def check_price(offer):
     '''
     tags and rejects negatice prices 
@@ -118,7 +129,7 @@ def check_price(offer):
     if price<0:
         raise InvalidOfferError(offer.offer_id, f"negative price: {price}")
 
-
+@offer_checks
 def check_timetravel(offer):
     '''
     checks departure before arrival
@@ -129,7 +140,7 @@ def check_timetravel(offer):
     if arrival < departure :
         raise InvalidOfferError(offer.offer_id, f"TIMETRAVEL: arrival before departure")
 
-
+@offer_checks
 def check_stars(offer):
     '''
     checks if stars/rating is within bounds 1-5
@@ -138,7 +149,7 @@ def check_stars(offer):
     if stars < 1 or stars > 5:
         raise InvalidOfferError(offer.offer_id, f"stars outside 1-5: {stars}")
 
-
+@offer_checks
 def check_seats(offer):
     '''
     checks for negative seats,
@@ -147,7 +158,7 @@ def check_seats(offer):
     if remaining_seats<1:
         raise InvalidOfferError(offer.offer_id, f"negative seats: {remaining_seats}")
 
-
+@offer_checks
 def check_transfers(offer):
     '''
     checks for negatice transfers
@@ -156,7 +167,7 @@ def check_transfers(offer):
     if nr_trans<0:
         raise InvalidOfferError(offer.offer_id, f"negative transfers: {nr_trans}")
 
-
+@offer_checks
 def check_duration(offer):
     '''
     checks if duration matches arrival-departure
@@ -168,7 +179,7 @@ def check_duration(offer):
     if duration!=dur_check:
         raise InvalidOfferError(offer.offer_id, f"duration {duration} does not match travel time {dur_check}")
 
-
+@offer_checks
 def check_co2(offer):
     '''
     checks for negative co2
@@ -177,6 +188,7 @@ def check_co2(offer):
     if co2<0:
         raise InvalidOfferError(offer.offer_id, f"negative co2: {co2}")
 
+@offer_checks
 def check_luggage(offer):
     '''
     checks for negative luggage
@@ -204,14 +216,8 @@ def validate_offers(rows):
             check_destination(row)
             check_company(row)
             offer= check_types(row)
-            check_price(offer)
-            check_timetravel(offer)
-            check_stars(offer)
-            check_seats(offer)
-            check_transfers(offer)
-            check_duration(offer)
-            check_co2(offer)
-            check_luggage(offer)
+            for check in OFFER_CHECKS:
+                check(offer)
             check_unique_id(row,seen_ids)
 
             valid.append(offer)

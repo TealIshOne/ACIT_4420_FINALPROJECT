@@ -78,5 +78,13 @@
         "price_eur": 23.76,
         "changeable": false,
         "refundable": false
+    },
+    {
+        "booking_ref": "BK-012746ED",
+        "booking_time": "2026-11-17T00:37:28.167175",
+        "offer_id": "OF-0021",
+        "price_eur": 23.76,
+        "changeable": false,
+        "refundable": false
     }
 ]
