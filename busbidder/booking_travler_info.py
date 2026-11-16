@@ -13,6 +13,7 @@ from busbidder.errors import BookingError
 BOOKING_REFERENCE_CODE = re.compile(r"BK-[0-9A-F]{8}$")
 
 
+
 def ask_profile(profiles=None):
     if profiles is None:
         profiles = {}
@@ -53,6 +54,7 @@ def ask_travel_date(date_time=None):
         except ValueError:
             print("invalid date format, please enter in month dd, yyyy format.")
 
+
 def ask_departure_time(departure_time=None):
     while True:
         time_input = input(f"Enter preferred departure time (HH:MM) : ")
@@ -80,7 +82,10 @@ def Travlers_choices():
 
 
 
-def booking_choices(offers, travler):
+def booking_choices(travler):
+    files=  call_files(["bad", "off"])
+    offers= files['off'] + files['bad']
+
 
     valid_off, reject_off = validate_offers (offers)
     pass_hl_offers=passes_hard_limits(valid_off, travler)
@@ -122,8 +127,7 @@ def book_offer(offer):
 
 
 
-# if __name__ == "__main__":                          # CHANGED: new test block
+# if __name__ == "__main__":
 #     traveller = Travlers_choices()
-#     offers = call_files(["off"])["off"]
-#     chosen = booking_choices(offers, traveller)
-#     print("You chose:", chosen)
+#     chosen = booking_choices(traveller)                      
+#     print(f"Booking confirmed! Reference: {booking.booking_ref}")  

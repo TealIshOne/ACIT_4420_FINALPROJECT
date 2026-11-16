@@ -4,6 +4,9 @@ from busbidder.loader import call_files
 from busbidder.models import Traveller
 from busbidder.validation import validate_offers
 from datetime import datetime
+from busbidder.booking_travler_info import Travlers_choices, booking_choices, book_offer
+
+
 
 
 menu_start=[
@@ -14,29 +17,45 @@ menu_start=[
 
 
 def menu():
-    for item in menu_start:
-        print(item)
+    traveller  = None
 
-    choice = input("Choose an option (1-3): ")
-    if choice == "1":
-        '''
-        here the user chooses a predetermined traveller profile from the config folder, 
-        or creates a new one. and add preferred departure time. 
-        the profile is then saved to the config folder as a json file.
-        '''
-        pass
-    elif choice == "2":
-        '''
-        here the top five travle offers are printed to the user,
-        based on the traveller profile and the offers in the data folder. 
-        the user can then choose to book one of the offers, or go back to the main menu.
-        '''
-        pass
-    elif choice == "3":
-        print("Exiting the program.")
-        return 
+    while True:
 
-    else:
-        print("Invalid choice. Please enter a number between 1 and 3.")
-        menu()
+        for item in menu_start:
+            print(item)
+
+        choice = input(f"Choose an option (1-{len(menu_start)}): ")
+        if choice == "1":
+            '''
+            TRAVLER PROFILE
+            here the user chooses a predetermined traveller profile from the config folder, 
+            or creates a new one. and add preferred departure time. 
+            the profile is then saved to the config folder as a json file.
+            '''
+            traveller =Travlers_choices()
+
+
+
+        elif choice == "2":
+            '''
+            BOOKING
+            here the top five travle offers are printed to the user,
+            based on the traveller profile and the offers in the data folder. 
+            the user can then choose to book one of the offers, or go back to the main menu.
+            '''
+            if traveller is None:
+                print("please choose a travell profile first (menu option 1)")
+                continue
+            chosen=booking_choices(traveller)
+            booking= book_offer(chosen)
+
+            print(f"Boking confirmed! refference code: {booking.booking_ref}")
+
+        elif choice == "3":
+            print("Exiting the program.")
+            return 
+
+        else:
+            print(f"Invalid choice. Please enter a number between 1 and {len(menu_start)}.")
+
 
