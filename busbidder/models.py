@@ -1,6 +1,7 @@
 
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from datetime import datetime
+import re
 
 
 ##helper function
@@ -10,6 +11,8 @@ def yes_no(text):
     if text== "no":
         return False
     raise ValueError(f"expected yes/no, got '{text}'")
+
+
 
 
 
@@ -88,6 +91,8 @@ class Traveller:
     hard_limits: dict
     weights: dict
     preferred_departure: str
+    destination_id : str= None
+    travel_date: str= None
 
     def weights_ok(self):
         for key in self.weights:
@@ -118,8 +123,11 @@ class Traveller:
         )
 
 
+
+@dataclass
 class Booking:
-    def __init__(self, offer: Offer, traveller: Traveller):
-        self.offer = offer
-        self.traveller = traveller
-        self.booking_time = datetime.now()
+    chosen_offer: Offer
+    booking_ref: str 
+    booking_time: datetime = field(default_factory=datetime.now)
+
+

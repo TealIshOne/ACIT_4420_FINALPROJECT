@@ -25,14 +25,18 @@ def menu():
         the profile is then saved to the config folder as a json file.
         '''
         pass
-    if choice == "2":
+    elif choice == "2":
         '''
         here the top five travle offers are printed to the user,
         based on the traveller profile and the offers in the data folder. 
         the user can then choose to book one of the offers, or go back to the main menu.
         '''
         pass
-    if choice == "3":
+    elif choice == "3":
         print("Exiting the program.")
-        exit()
+        return 
+
+    else:
+        print("Invalid choice. Please enter a number between 1 and 3.")
+        menu()
 
