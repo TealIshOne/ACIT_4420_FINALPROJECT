@@ -1,6 +1,6 @@
 company_id,name,profile
-SR,SolRuta,Low-cost daytime services
-CE,Camino Express,Fast direct connections between major cities
-CL,CostaLink,Strong coverage of coastal destinations
-VB,VerdeBus,Environment-focused services and modern vehicles
-NV,NocheVia,Overnight and late-evening services
+solruta,SolRuta,Low-cost daytime services
+camino,Camino Express,Fast direct connections between major cities
+costalink,CostaLink,Strong coverage of coastal destinations
+verdebus,VerdeBus,Environment-focused services and modern vehicles
+nochevia,NocheVia,Overnight and late-evening services

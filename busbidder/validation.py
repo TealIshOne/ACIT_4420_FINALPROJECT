@@ -1,6 +1,7 @@
 #home brew
 from busbidder.models import Offer
 from busbidder.errors import BusBidderError,InvalidOfferError, InvalidIdentifierError
+from busbidder.loader import call_files
 
 # libs
 import re
@@ -46,14 +47,7 @@ ALL_DESTINATION_IDS=[
     "CAD"
     ]
 
-ALL_COMPANY_IDS=[
-    "solruta",
-    "camino",
-    "costalink",
-    "verdebus",
-    "nochevia"
-    ]
-
+ALL_COMPANY_IDS=[c["company_id"] for c in call_files(["comp"])["comp"]]
 
 ##decorator
 

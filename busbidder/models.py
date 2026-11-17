@@ -83,8 +83,6 @@ class Offer:
             converted[key] = convert(row[key])   
         return cls(**converted)
 
-    
-
 @dataclass
 class Traveller:
     profile_name: str
@@ -121,8 +119,6 @@ class Traveller:
             weights=profile["weights"],
             preferred_departure=profile["preferred_departure"]
         )
-
-
 
 @dataclass
 class Booking:
