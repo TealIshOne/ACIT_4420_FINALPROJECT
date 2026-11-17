@@ -8,5 +8,5 @@ def explain_top_offer(offer_id, details, weights, nr):
     weakest= min(shares, key=shares.get)
 
     print(f"\nWhy {offer_id} is nr. {nr}: ")
-    print(f" strongest: {best} ({shares[best]} of full points)")
-    print(f" weakest: {weakest} ({shares[weakest]} of full points)\n")
+    print(f" strongest: {best} ({shares[best]:.2f} of full points)")
+    print(f" weakest: {weakest} ({shares[weakest]:.2f} of full points)\n")
