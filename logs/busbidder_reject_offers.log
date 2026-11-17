@@ -736,3 +736,21 @@
 2026-11-17 21:33:45,005 WARNING rejection: invalid 'duplicate offer_id': 'OF-0001' does not match expected pattern None
 2026-11-17 21:33:45,005 WARNING rejection: invalid 'offer_id': 'OF 9013' does not match expected pattern ^OF-\d{4}$
 2026-11-17 21:33:45,005 WARNING rejection: offer 'OF-9014' : duration 999 does not match travel time 280.0
+2026-11-18 00:36:51,388 WARNING rejection: offer 'OF-0025' : to few seats: 0
+2026-11-18 00:36:51,389 WARNING rejection: offer 'OF-0027' : to few seats: 0
+2026-11-18 00:36:51,390 WARNING rejection: offer 'OF-0029' : to few seats: 0
+2026-11-18 00:36:51,390 WARNING rejection: offer 'OF-0038' : to few seats: 0
+2026-11-18 00:36:51,390 WARNING rejection: offer 'OF-9001' : negative price: -12.0
+2026-11-18 00:36:51,391 WARNING rejection: offer 'OF-9002' : unknown destination: PAR
+2026-11-18 00:36:51,391 WARNING rejection: offer 'OF-9003' : bad type: day 32 must be in range 1..31 for month 7 in year 2026
+2026-11-18 00:36:51,391 WARNING rejection: offer 'OF-9004' : TIMETRAVEL: arrival before departure
+2026-11-18 00:36:51,391 WARNING rejection: offer 'OF-9005' : stars outside 1-5: 6.2
+2026-11-18 00:36:51,391 WARNING rejection: offer 'OF-9006' : to few seats: -3
+2026-11-18 00:36:51,391 WARNING rejection: offer 'OF-9007' : missing value:price_eur
+2026-11-18 00:36:51,391 WARNING rejection: offer 'OF-9008' : unknown company: busmax
+2026-11-18 00:36:51,391 WARNING rejection: offer 'OF-9009' : negative transfers: -1
+2026-11-18 00:36:51,391 WARNING rejection: offer 'OF-9010' : bad type: expected yes/no, got 'maybe'
+2026-11-18 00:36:51,391 WARNING rejection: offer 'OF-9011' : bad type: could not convert string to float: 'abc'
+2026-11-18 00:36:51,391 WARNING rejection: invalid 'duplicate offer_id': 'OF-0001' does not match expected pattern None
+2026-11-18 00:36:51,391 WARNING rejection: invalid 'offer_id': 'OF 9013' does not match expected pattern ^OF-\d{4}$
+2026-11-18 00:36:51,391 WARNING rejection: offer 'OF-9014' : duration 999 does not match travel time 280.0
