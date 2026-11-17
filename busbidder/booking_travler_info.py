@@ -147,8 +147,8 @@ def booking_choices(travler):
     for number, (offer_id, score) in enumerate(top_offers,start=1):
         seats=offer_by_id[offer_id].seats_available
         print(f"{number}. {offer_id}: {score:.1f} ({seats} seats left)")
-        best_id=top_offers[0][0]
-        explain_top_offer(best_id,score_details[best_id], travler.weights, number)
+    best_id=top_offers[0][0]
+    explain_top_offer(best_id,score_details[best_id], travler.weights, number)
 
 
     while True:

@@ -18,6 +18,10 @@ The program uses the datafiles to valdiate, filter and rate  travle offers based
 6. lets the travle book offerts/ change travle profile and logs data without exiting and restarting program.
 7. exiting program can be done in 'start' menue by hititng corresponding key, or at any point with keyboardinterupt.
 
+
+
+
+
 # Requirments
 
 - Python 3.14
@@ -104,5 +108,4 @@ logs\busbidder.log		// this log file takes only crash warnings for missing files
 2. **Departure time uses a fixed 24-hour scalr**e: while the rest of the parameters are relative, so its counted a bit different than the rest.
 3. **Hard Limits are Strict:** if a hard limit is £30, a price of £30.01 would be ecluded form final offer conciderations
 4. **Flexibility is all or nothong**: eithe full score or 0, this may negatively/poositively affect the final scoring even if not strictly relevant
-5. **Ties**: since the scored offers are in a set (unordered) in the case of two 'bottom' tie offer, a company might loose booking rights due to random ordering.
-6. **Companies with many offers**: gets an advantage in reaching top 5 scores as they have more oprotuneties.
+5. **Companies with many offers**: gets an advantage in reaching top 5 scores as they have more oprotuneties.
