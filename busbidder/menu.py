@@ -49,7 +49,11 @@ def menu():
                 continue
             try:
                 booking= book_offer(chosen)
-                print(f"Booking confirmed! refference code: {booking.booking_ref}")
+                o=booking.chosen_offer
+                print(f"\nBooking confirmed! refference code: {booking.booking_ref}")
+                print(f"    {o.offer_id} to {o.destination_id}, departs {o.departure: %d %B %Y %H:%M}")
+                print(f"    price: {o.price_eur:.2f} EUR")
+                print(f"    changable: {'yes' if o.changeable else 'no'} | refundable: {'yes' if o.refundable else 'no'}\n")
             except BookingError as err:
                 print(f"sorry, booking failed: {err}")
 

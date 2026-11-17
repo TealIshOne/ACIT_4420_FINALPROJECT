@@ -10,10 +10,11 @@ from busbidder.validation import validate_offers
 from busbidder.filters import passes_hard_limits, weights_score
 from busbidder.ranking import rank_offers
 from busbidder.errors import BookingError
+from busbidder.explain import explain_top_offer
 
 
 
-BOOKING_REFERENCE_CODE = re.compile(r"BK-[0-9A-F]{8}$")
+BOOKING_REFERENCE_CODE = re.compile(r"^BK-[0-9A-F]{8}$")
                                     # CHANGED: new import at top
 
 OUT_DIR = Path(__file__).resolve().parent.parent / "outputs"  
@@ -36,7 +37,14 @@ def booked_seats():
                 counts[b["offer_id"]]= counts.get(b["offer_id"],0)+1
     return counts
 
-
+def show_profiles(profiles=None):
+    if profiles is None:
+        profiles = {}
+    names=list(profiles)
+    for number, name in enumerate(names, start=1):
+        print(f"{number}. {profiles[name]['label']}")
+        print(f"  hard limits: {profiles[name]['hard_limits']}")
+        print(f"  weights:     {profiles[name]['weights']}")
 
 def ask_profile(profiles=None):
     if profiles is None:
@@ -46,9 +54,15 @@ def ask_profile(profiles=None):
         print(f"{number}. {profiles[name]['label']}")
     while True:
         choice =input("Choose a profile by number: ")
+        if choice == "+":
+            show_profiles(profiles)
+            continue
         if choice.isdigit() and 1 <= int(choice) <= len(names):
             return names[int(choice)-1]
         print("Invalid choice. Please enter a number corresponding to the profile.")
+
+
+
 
 
 
@@ -133,6 +147,8 @@ def booking_choices(travler):
     for number, (offer_id, score) in enumerate(top_offers,start=1):
         seats=offer_by_id[offer_id].seats_available
         print(f"{number}. {offer_id}: {score:.1f} ({seats} seats left)")
+        best_id=top_offers[0][0]
+        explain_top_offer(best_id,score_details[best_id], travler.weights, number)
 
 
     while True:
@@ -188,6 +204,8 @@ def book_offer(offer):
 
     offer.seats_available= offer.seats_available - 1
     booking = Booking(chosen_offer=offer, booking_ref=make_booking_ref())
+    if not BOOKING_REFERENCE_CODE.fullmatch(booking.booking_ref):
+        raise BookingError(booking.booking_ref, "invalid booking refference format")
     booking_logger.info(f"booked {booking.booking_ref} on {offer.offer_id}")
     save_booking(booking)
     return booking

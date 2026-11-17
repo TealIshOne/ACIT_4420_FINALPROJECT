@@ -152,11 +152,11 @@ def check_stars(offer):
 @offer_checks
 def check_seats(offer):
     '''
-    checks for negative seats,
+    checks for <=0 seats,
     '''
     remaining_seats=offer.seats_available
     if remaining_seats<1:
-        raise InvalidOfferError(offer.offer_id, f"negative seats: {remaining_seats}")
+        raise InvalidOfferError(offer.offer_id, f"to few seats: {remaining_seats}")
 
 @offer_checks
 def check_transfers(offer):

@@ -49,7 +49,7 @@ def weights_score(offers, traveller):
     uses offers from hard limits filter, and weights from traveller class
     """
     if not traveller.weights:
-        return {}
+        return {}, {}
     
 
     weighted_offers = {}

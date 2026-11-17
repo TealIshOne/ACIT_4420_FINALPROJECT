@@ -448,3 +448,147 @@
 2026-11-17 00:37:24,820 WARNING rejection: invalid 'duplicate offer_id': 'OF-0001' does not match expected pattern None
 2026-11-17 00:37:24,820 WARNING rejection: invalid 'offer_id': 'OF 9013' does not match expected pattern ^OF-\d{4}$
 2026-11-17 00:37:24,820 WARNING rejection: offer 'OF-9014' : duration 999 does not match travel time 280.0
+2026-11-17 14:03:35,800 WARNING rejection: offer 'OF-0025' : to few seats: 0
+2026-11-17 14:03:35,800 WARNING rejection: offer 'OF-0027' : to few seats: 0
+2026-11-17 14:03:35,801 WARNING rejection: offer 'OF-0029' : to few seats: 0
+2026-11-17 14:03:35,801 WARNING rejection: offer 'OF-0038' : to few seats: 0
+2026-11-17 14:03:35,801 WARNING rejection: offer 'OF-9001' : negative price: -12.0
+2026-11-17 14:03:35,801 WARNING rejection: offer 'OF-9002' : unknown destination: PAR
+2026-11-17 14:03:35,801 WARNING rejection: offer 'OF-9003' : bad type: day 32 must be in range 1..31 for month 7 in year 2026
+2026-11-17 14:03:35,802 WARNING rejection: offer 'OF-9004' : TIMETRAVEL: arrival before departure
+2026-11-17 14:03:35,802 WARNING rejection: offer 'OF-9005' : stars outside 1-5: 6.2
+2026-11-17 14:03:35,802 WARNING rejection: offer 'OF-9006' : to few seats: -3
+2026-11-17 14:03:35,802 WARNING rejection: offer 'OF-9007' : missing value:price_eur
+2026-11-17 14:03:35,802 WARNING rejection: offer 'OF-9008' : unknown company: busmax
+2026-11-17 14:03:35,802 WARNING rejection: offer 'OF-9009' : negative transfers: -1
+2026-11-17 14:03:35,803 WARNING rejection: offer 'OF-9010' : bad type: expected yes/no, got 'maybe'
+2026-11-17 14:03:35,803 WARNING rejection: offer 'OF-9011' : bad type: could not convert string to float: 'abc'
+2026-11-17 14:03:35,803 WARNING rejection: invalid 'duplicate offer_id': 'OF-0001' does not match expected pattern None
+2026-11-17 14:03:35,803 WARNING rejection: invalid 'offer_id': 'OF 9013' does not match expected pattern ^OF-\d{4}$
+2026-11-17 14:03:35,803 WARNING rejection: offer 'OF-9014' : duration 999 does not match travel time 280.0
+2026-11-17 14:12:56,859 WARNING rejection: offer 'OF-0025' : to few seats: 0
+2026-11-17 14:12:56,860 WARNING rejection: offer 'OF-0027' : to few seats: 0
+2026-11-17 14:12:56,860 WARNING rejection: offer 'OF-0029' : to few seats: 0
+2026-11-17 14:12:56,860 WARNING rejection: offer 'OF-0038' : to few seats: 0
+2026-11-17 14:12:56,861 WARNING rejection: offer 'OF-9001' : negative price: -12.0
+2026-11-17 14:12:56,861 WARNING rejection: offer 'OF-9002' : unknown destination: PAR
+2026-11-17 14:12:56,862 WARNING rejection: offer 'OF-9003' : bad type: day 32 must be in range 1..31 for month 7 in year 2026
+2026-11-17 14:12:56,862 WARNING rejection: offer 'OF-9004' : TIMETRAVEL: arrival before departure
+2026-11-17 14:12:56,862 WARNING rejection: offer 'OF-9005' : stars outside 1-5: 6.2
+2026-11-17 14:12:56,862 WARNING rejection: offer 'OF-9006' : to few seats: -3
+2026-11-17 14:12:56,862 WARNING rejection: offer 'OF-9007' : missing value:price_eur
+2026-11-17 14:12:56,862 WARNING rejection: offer 'OF-9008' : unknown company: busmax
+2026-11-17 14:12:56,863 WARNING rejection: offer 'OF-9009' : negative transfers: -1
+2026-11-17 14:12:56,863 WARNING rejection: offer 'OF-9010' : bad type: expected yes/no, got 'maybe'
+2026-11-17 14:12:56,863 WARNING rejection: offer 'OF-9011' : bad type: could not convert string to float: 'abc'
+2026-11-17 14:12:56,863 WARNING rejection: invalid 'duplicate offer_id': 'OF-0001' does not match expected pattern None
+2026-11-17 14:12:56,863 WARNING rejection: invalid 'offer_id': 'OF 9013' does not match expected pattern ^OF-\d{4}$
+2026-11-17 14:12:56,863 WARNING rejection: offer 'OF-9014' : duration 999 does not match travel time 280.0
+2026-11-17 14:13:43,549 WARNING rejection: offer 'OF-0025' : to few seats: 0
+2026-11-17 14:13:43,550 WARNING rejection: offer 'OF-0027' : to few seats: 0
+2026-11-17 14:13:43,550 WARNING rejection: offer 'OF-0029' : to few seats: 0
+2026-11-17 14:13:43,551 WARNING rejection: offer 'OF-0038' : to few seats: 0
+2026-11-17 14:13:43,551 WARNING rejection: offer 'OF-9001' : negative price: -12.0
+2026-11-17 14:13:43,551 WARNING rejection: offer 'OF-9002' : unknown destination: PAR
+2026-11-17 14:13:43,552 WARNING rejection: offer 'OF-9003' : bad type: day 32 must be in range 1..31 for month 7 in year 2026
+2026-11-17 14:13:43,552 WARNING rejection: offer 'OF-9004' : TIMETRAVEL: arrival before departure
+2026-11-17 14:13:43,552 WARNING rejection: offer 'OF-9005' : stars outside 1-5: 6.2
+2026-11-17 14:13:43,553 WARNING rejection: offer 'OF-9006' : to few seats: -3
+2026-11-17 14:13:43,553 WARNING rejection: offer 'OF-9007' : missing value:price_eur
+2026-11-17 14:13:43,553 WARNING rejection: offer 'OF-9008' : unknown company: busmax
+2026-11-17 14:13:43,553 WARNING rejection: offer 'OF-9009' : negative transfers: -1
+2026-11-17 14:13:43,553 WARNING rejection: offer 'OF-9010' : bad type: expected yes/no, got 'maybe'
+2026-11-17 14:13:43,553 WARNING rejection: offer 'OF-9011' : bad type: could not convert string to float: 'abc'
+2026-11-17 14:13:43,554 WARNING rejection: invalid 'duplicate offer_id': 'OF-0001' does not match expected pattern None
+2026-11-17 14:13:43,554 WARNING rejection: invalid 'offer_id': 'OF 9013' does not match expected pattern ^OF-\d{4}$
+2026-11-17 14:13:43,554 WARNING rejection: offer 'OF-9014' : duration 999 does not match travel time 280.0
+2026-11-17 14:14:43,621 WARNING rejection: offer 'OF-0025' : to few seats: 0
+2026-11-17 14:14:43,621 WARNING rejection: offer 'OF-0027' : to few seats: 0
+2026-11-17 14:14:43,622 WARNING rejection: offer 'OF-0029' : to few seats: 0
+2026-11-17 14:14:43,622 WARNING rejection: offer 'OF-0038' : to few seats: 0
+2026-11-17 14:14:43,622 WARNING rejection: offer 'OF-9001' : negative price: -12.0
+2026-11-17 14:14:43,622 WARNING rejection: offer 'OF-9002' : unknown destination: PAR
+2026-11-17 14:14:43,622 WARNING rejection: offer 'OF-9003' : bad type: day 32 must be in range 1..31 for month 7 in year 2026
+2026-11-17 14:14:43,623 WARNING rejection: offer 'OF-9004' : TIMETRAVEL: arrival before departure
+2026-11-17 14:14:43,623 WARNING rejection: offer 'OF-9005' : stars outside 1-5: 6.2
+2026-11-17 14:14:43,623 WARNING rejection: offer 'OF-9006' : to few seats: -3
+2026-11-17 14:14:43,623 WARNING rejection: offer 'OF-9007' : missing value:price_eur
+2026-11-17 14:14:43,623 WARNING rejection: offer 'OF-9008' : unknown company: busmax
+2026-11-17 14:14:43,623 WARNING rejection: offer 'OF-9009' : negative transfers: -1
+2026-11-17 14:14:43,624 WARNING rejection: offer 'OF-9010' : bad type: expected yes/no, got 'maybe'
+2026-11-17 14:14:43,624 WARNING rejection: offer 'OF-9011' : bad type: could not convert string to float: 'abc'
+2026-11-17 14:14:43,624 WARNING rejection: invalid 'duplicate offer_id': 'OF-0001' does not match expected pattern None
+2026-11-17 14:14:43,624 WARNING rejection: invalid 'offer_id': 'OF 9013' does not match expected pattern ^OF-\d{4}$
+2026-11-17 14:14:43,625 WARNING rejection: offer 'OF-9014' : duration 999 does not match travel time 280.0
+2026-11-17 14:26:17,801 WARNING rejection: offer 'OF-0025' : to few seats: 0
+2026-11-17 14:26:17,802 WARNING rejection: offer 'OF-0027' : to few seats: 0
+2026-11-17 14:26:17,802 WARNING rejection: offer 'OF-0029' : to few seats: 0
+2026-11-17 14:26:17,803 WARNING rejection: offer 'OF-0038' : to few seats: 0
+2026-11-17 14:26:17,803 WARNING rejection: offer 'OF-9001' : negative price: -12.0
+2026-11-17 14:26:17,803 WARNING rejection: offer 'OF-9002' : unknown destination: PAR
+2026-11-17 14:26:17,803 WARNING rejection: offer 'OF-9003' : bad type: day 32 must be in range 1..31 for month 7 in year 2026
+2026-11-17 14:26:17,803 WARNING rejection: offer 'OF-9004' : TIMETRAVEL: arrival before departure
+2026-11-17 14:26:17,803 WARNING rejection: offer 'OF-9005' : stars outside 1-5: 6.2
+2026-11-17 14:26:17,804 WARNING rejection: offer 'OF-9006' : to few seats: -3
+2026-11-17 14:26:17,804 WARNING rejection: offer 'OF-9007' : missing value:price_eur
+2026-11-17 14:26:17,804 WARNING rejection: offer 'OF-9008' : unknown company: busmax
+2026-11-17 14:26:17,804 WARNING rejection: offer 'OF-9009' : negative transfers: -1
+2026-11-17 14:26:17,804 WARNING rejection: offer 'OF-9010' : bad type: expected yes/no, got 'maybe'
+2026-11-17 14:26:17,805 WARNING rejection: offer 'OF-9011' : bad type: could not convert string to float: 'abc'
+2026-11-17 14:26:17,805 WARNING rejection: invalid 'duplicate offer_id': 'OF-0001' does not match expected pattern None
+2026-11-17 14:26:17,805 WARNING rejection: invalid 'offer_id': 'OF 9013' does not match expected pattern ^OF-\d{4}$
+2026-11-17 14:26:17,805 WARNING rejection: offer 'OF-9014' : duration 999 does not match travel time 280.0
+2026-11-17 14:26:59,965 WARNING rejection: offer 'OF-0025' : to few seats: 0
+2026-11-17 14:26:59,966 WARNING rejection: offer 'OF-0027' : to few seats: 0
+2026-11-17 14:26:59,966 WARNING rejection: offer 'OF-0029' : to few seats: 0
+2026-11-17 14:26:59,967 WARNING rejection: offer 'OF-0038' : to few seats: 0
+2026-11-17 14:26:59,967 WARNING rejection: offer 'OF-9001' : negative price: -12.0
+2026-11-17 14:26:59,967 WARNING rejection: offer 'OF-9002' : unknown destination: PAR
+2026-11-17 14:26:59,968 WARNING rejection: offer 'OF-9003' : bad type: day 32 must be in range 1..31 for month 7 in year 2026
+2026-11-17 14:26:59,968 WARNING rejection: offer 'OF-9004' : TIMETRAVEL: arrival before departure
+2026-11-17 14:26:59,968 WARNING rejection: offer 'OF-9005' : stars outside 1-5: 6.2
+2026-11-17 14:26:59,969 WARNING rejection: offer 'OF-9006' : to few seats: -3
+2026-11-17 14:26:59,969 WARNING rejection: offer 'OF-9007' : missing value:price_eur
+2026-11-17 14:26:59,969 WARNING rejection: offer 'OF-9008' : unknown company: busmax
+2026-11-17 14:26:59,970 WARNING rejection: offer 'OF-9009' : negative transfers: -1
+2026-11-17 14:26:59,970 WARNING rejection: offer 'OF-9010' : bad type: expected yes/no, got 'maybe'
+2026-11-17 14:26:59,970 WARNING rejection: offer 'OF-9011' : bad type: could not convert string to float: 'abc'
+2026-11-17 14:26:59,971 WARNING rejection: invalid 'duplicate offer_id': 'OF-0001' does not match expected pattern None
+2026-11-17 14:26:59,971 WARNING rejection: invalid 'offer_id': 'OF 9013' does not match expected pattern ^OF-\d{4}$
+2026-11-17 14:26:59,971 WARNING rejection: offer 'OF-9014' : duration 999 does not match travel time 280.0
+2026-11-17 14:28:09,956 WARNING rejection: offer 'OF-0025' : to few seats: 0
+2026-11-17 14:28:09,957 WARNING rejection: offer 'OF-0027' : to few seats: 0
+2026-11-17 14:28:09,957 WARNING rejection: offer 'OF-0029' : to few seats: 0
+2026-11-17 14:28:09,958 WARNING rejection: offer 'OF-0038' : to few seats: 0
+2026-11-17 14:28:09,958 WARNING rejection: offer 'OF-9001' : negative price: -12.0
+2026-11-17 14:28:09,958 WARNING rejection: offer 'OF-9002' : unknown destination: PAR
+2026-11-17 14:28:09,958 WARNING rejection: offer 'OF-9003' : bad type: day 32 must be in range 1..31 for month 7 in year 2026
+2026-11-17 14:28:09,958 WARNING rejection: offer 'OF-9004' : TIMETRAVEL: arrival before departure
+2026-11-17 14:28:09,959 WARNING rejection: offer 'OF-9005' : stars outside 1-5: 6.2
+2026-11-17 14:28:09,959 WARNING rejection: offer 'OF-9006' : to few seats: -3
+2026-11-17 14:28:09,959 WARNING rejection: offer 'OF-9007' : missing value:price_eur
+2026-11-17 14:28:09,959 WARNING rejection: offer 'OF-9008' : unknown company: busmax
+2026-11-17 14:28:09,959 WARNING rejection: offer 'OF-9009' : negative transfers: -1
+2026-11-17 14:28:09,959 WARNING rejection: offer 'OF-9010' : bad type: expected yes/no, got 'maybe'
+2026-11-17 14:28:09,959 WARNING rejection: offer 'OF-9011' : bad type: could not convert string to float: 'abc'
+2026-11-17 14:28:09,959 WARNING rejection: invalid 'duplicate offer_id': 'OF-0001' does not match expected pattern None
+2026-11-17 14:28:09,959 WARNING rejection: invalid 'offer_id': 'OF 9013' does not match expected pattern ^OF-\d{4}$
+2026-11-17 14:28:09,959 WARNING rejection: offer 'OF-9014' : duration 999 does not match travel time 280.0
+2026-11-17 14:28:57,920 WARNING rejection: offer 'OF-0025' : to few seats: 0
+2026-11-17 14:28:57,921 WARNING rejection: offer 'OF-0027' : to few seats: 0
+2026-11-17 14:28:57,921 WARNING rejection: offer 'OF-0029' : to few seats: 0
+2026-11-17 14:28:57,921 WARNING rejection: offer 'OF-0038' : to few seats: 0
+2026-11-17 14:28:57,922 WARNING rejection: offer 'OF-9001' : negative price: -12.0
+2026-11-17 14:28:57,922 WARNING rejection: offer 'OF-9002' : unknown destination: PAR
+2026-11-17 14:28:57,922 WARNING rejection: offer 'OF-9003' : bad type: day 32 must be in range 1..31 for month 7 in year 2026
+2026-11-17 14:28:57,923 WARNING rejection: offer 'OF-9004' : TIMETRAVEL: arrival before departure
+2026-11-17 14:28:57,923 WARNING rejection: offer 'OF-9005' : stars outside 1-5: 6.2
+2026-11-17 14:28:57,923 WARNING rejection: offer 'OF-9006' : to few seats: -3
+2026-11-17 14:28:57,924 WARNING rejection: offer 'OF-9007' : missing value:price_eur
+2026-11-17 14:28:57,924 WARNING rejection: offer 'OF-9008' : unknown company: busmax
+2026-11-17 14:28:57,924 WARNING rejection: offer 'OF-9009' : negative transfers: -1
+2026-11-17 14:28:57,924 WARNING rejection: offer 'OF-9010' : bad type: expected yes/no, got 'maybe'
+2026-11-17 14:28:57,924 WARNING rejection: offer 'OF-9011' : bad type: could not convert string to float: 'abc'
+2026-11-17 14:28:57,924 WARNING rejection: invalid 'duplicate offer_id': 'OF-0001' does not match expected pattern None
+2026-11-17 14:28:57,925 WARNING rejection: invalid 'offer_id': 'OF 9013' does not match expected pattern ^OF-\d{4}$
+2026-11-17 14:28:57,925 WARNING rejection: offer 'OF-9014' : duration 999 does not match travel time 280.0
