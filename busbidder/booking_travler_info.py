@@ -27,7 +27,6 @@ def make_booking_ref():
     ref="BK-" + uuid.uuid4().hex[:8].upper()
     return ref
 
-
 def booked_seats():
     file = OUT_DIR /"bookings.json"
     counts={}
@@ -46,6 +45,10 @@ def show_profiles(profiles=None):
         print(f"  hard limits: {profiles[name]['hard_limits']}")
         print(f"  weights:     {profiles[name]['weights']}")
 
+
+
+
+
 def ask_profile(profiles=None):
     if profiles is None:
         profiles = {}
@@ -60,10 +63,6 @@ def ask_profile(profiles=None):
         if choice.isdigit() and 1 <= int(choice) <= len(names):
             return names[int(choice)-1]
         print("Invalid choice. Please enter a number corresponding to the profile.")
-
-
-
-
 
 
 def ask_destination(destinations=None):
@@ -116,8 +115,6 @@ def Travlers_choices():
     return traveller
 
 
-
-
 def booking_choices(travler):
     files=  call_files(["bad", "off"])
     offers= files['off'] + files['bad']
@@ -142,7 +139,6 @@ def booking_choices(travler):
         return None
 
 
-
     offer_by_id= {o.offer_id: o for o in pass_hl_offers}
     for number, (offer_id, score) in enumerate(top_offers,start=1):
         seats=offer_by_id[offer_id].seats_available
@@ -154,6 +150,9 @@ def booking_choices(travler):
     while True:
         choice=input("enter the number of the offer you are choosing (or '+' for more details): ")
 
+        if choice == "":
+            return None
+        
         if choice == "+":
             for offer_id, score in top_offers:
                 print(f"{offer_id} total{score:.1f}")
@@ -194,8 +193,6 @@ def save_booking(booking):
 
     with open(file, "w", encoding="utf-8") as f:
         json.dump(bookings, f, indent=4)
-
-
 
 
 def book_offer(offer):
