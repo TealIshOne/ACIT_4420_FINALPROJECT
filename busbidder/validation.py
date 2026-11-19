@@ -1,7 +1,6 @@
 #home brew
 from busbidder.models import Offer
 from busbidder.errors import BusBidderError,InvalidOfferError, InvalidIdentifierError
-from busbidder.loader import call_files
 
 # libs
 import re

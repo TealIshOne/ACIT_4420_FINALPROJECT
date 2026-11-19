@@ -36,7 +36,7 @@ def booked_seats():
                 for b in json.load(f):
                     counts[b["offer_id"]]= counts.get(b["offer_id"],0)+1
         except (json.JSONDecodeError, KeyError, TypeError) as err:
-            raise BookingError("booking.json", "file is broken, fix or delete it") from err
+            raise BookingError("bookings.json", "file is broken, fix or delete it") from err
     return counts
 
 def show_profiles(profiles=None):
@@ -63,7 +63,7 @@ def ask_profile(profiles=None):
         if choice == "+":
             show_profiles(profiles)
             continue
-        if choice.isdigit() and 1 <= int(choice) <= len(names):
+        if choice.isdecimal() and 1 <= int(choice) <= len(names):
             return names[int(choice)-1]
         print("Invalid choice. Please enter a number corresponding to the profile.")
 
@@ -76,7 +76,7 @@ def ask_destination(destinations=None):
         print(f"{number}. {dest['destination_id']}: {dest['destination']}")
     while True:
         choice = input("Choose a destination by number: ")
-        if choice.isdigit() and 1 <= int(choice) <= len(destinations):
+        if choice.isdecimal() and 1 <= int(choice) <= len(destinations):
             return destinations[int(choice)-1]["destination_id"]
         print("Invalid choice. Please enter a number corresponding to the destination.")
 
@@ -165,7 +165,7 @@ def booking_choices(travler):
 
 
 
-        if choice.isdigit() and 1<= int(choice) <=len(top_offers):
+        if choice.isdecimal() and 1<= int(choice) <=len(top_offers):
             break
         print("invalid choice")
 

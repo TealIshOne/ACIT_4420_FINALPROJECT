@@ -61,9 +61,9 @@ data\destinations.csv	// this file contains the available destinations and their
 
 data\offers_bad.csv		// this file contains only bad offers, meaning they should be filtered out through validation
 
-data\offers.csv			// this file contains only mostly good offers, it the exception of four 0 remaining seat offers, meaning they 			
+data\offers.csv			// this file contains only mostly good offers, it the exception of four 0 remaining seat offers, meaning all but 
 
-						should all remaina after validation
+					    the 0-seaters are valid rows
 
 # Output Files
 
