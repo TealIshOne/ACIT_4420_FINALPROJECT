@@ -1,12 +1,3 @@
-python -m venv .venv
-
-.venv\Scripts\python -m pip install -r
-requirements.txt
-
-| Candidate_nr | Class    | date       |
-| ------------ | -------- | ---------- |
-| 870          | ACIT4420 | 20.11.2026 |
-
 # BusBidder
 
 The Code is a  modulised simulation of a buss travle booking system using hardcoded CSV and JSON data files.
