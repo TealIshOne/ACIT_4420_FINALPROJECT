@@ -37,7 +37,7 @@ Only standard libraries, pluss pytest for test cases
 **Cloning git repository:**
 
 ```Python
-git clone  https://https://github.com/TealIshOne/ACIT_4420_FINALPROJECT.git 
+git clone https://github.com/TealIshOne/ACIT_4420_FINALPROJECT.git
 
 cd ACIT_4420_FINALPROJECT
 
@@ -86,15 +86,16 @@ logs\busbidder.log		// this log file takes only crash warnings for missing files
 
 # Limitations
 
-1. One  of the main limitations of the system is that the user can only book one seat/offer at a time, however the program is not destigned for group bookings.
-2. There is no way to cancel or change a booking once it is chosen, and payment is simulated.
-3. Seats are counted in program and are not changed in the datafiles. The seat count is stored in outputs/bookings.json, so if this file is deleated the seats return to default based ont eh datafiles.
-4. One destination per booking, multi-city travle is not an option.
-5. Travler profiles are fixed and cannot be changed in program, can only be changed by ammending the file itself.
-6. valid destinations and company ids are hardcoed in validation.py, a new destination therefore needs a code change in adition to a datafile change.
-7. Stars (customer_rating) is checked but never used in the scoring
-8. 'Flexibility only looks at 'changable' not 'refundable'
-9. only top 5 offers are shown, this limits the users choices. Thos value was chosen for readability and is a single digit code change.
+1. One major limitation is the limited number of offers given in offers.csv. This mean  the user may find it difficult to find an available offer if they are not familiar with the available offers.
+2. One  of the main limitations of the system is that the user can only book one seat/offer at a time, however the program is not destigned for group bookings.
+3. There is no way to cancel or change a booking once it is chosen, and payment is simulated.
+4. Seats are counted in program and are not changed in the datafiles. The seat count is stored in outputs/bookings.json, so if this file is deleated the seats return to default based ont eh datafiles.
+5. One destination per booking, multi-city travle is not an option.
+6. Travler profiles are fixed and cannot be changed in program, can only be changed by ammending the file itself.
+7. valid destinations and company ids are hardcoed in validation.py, a new destination therefore needs a code change in adition to a datafile change.
+8. Stars (customer_rating) is checked but never used in the scoring
+9. 'Flexibility only looks at 'changable' not 'refundable'
+10. only top 5 offers are shown, this limits the users choices. Thos value was chosen for readability and is a single digit code change.
 
 # Possible unfair outcomes
 
