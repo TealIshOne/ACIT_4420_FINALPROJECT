@@ -37,5 +37,10 @@ if __name__ == "__main__":
     except BusBidderError as err:
         print(f"sorry, the program has stopped: {err}")
         logging.error(err)
-    except KeyboardInterrupt:
+    except (KeyboardInterrupt, EOFError):
         print("GOODBYE!")
+
+    except Exception as err:
+        print("sorry, something unexpected went wrong, see logs/busbidder.log")
+        logging.exception(err)
+

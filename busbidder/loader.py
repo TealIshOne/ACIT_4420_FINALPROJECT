@@ -34,7 +34,7 @@ def call_files(call_key_list=None):
 
     if "prof" in call_key_list:
         try:
-            with open(PROF_DIR/"profiles.json", encoding="utf-8") as f:
+            with open(PROF_DIR/"profiles.json", encoding="utf-8-sig") as f:
                 results["prof"] = json.load(f)
         except FileNotFoundError as err:
             missing=Path(err.filename)
@@ -45,7 +45,7 @@ def call_files(call_key_list=None):
 
     if "comp" in call_key_list:
         try:
-            with open(CSV_DIR / "companies.csv", newline="", encoding="utf-8") as f: 
+            with open(CSV_DIR / "companies.csv", newline="", encoding="utf-8-sig") as f: 
                 results["comp"] = list(csv.DictReader(f))
         except FileNotFoundError as err:
             missing=Path(err.filename)
@@ -54,7 +54,7 @@ def call_files(call_key_list=None):
 
     if "dest" in call_key_list:
         try:
-            with open(CSV_DIR / "destinations.csv", newline="", encoding="utf-8") as f: 
+            with open(CSV_DIR / "destinations.csv", newline="", encoding="utf-8-sig") as f: 
                 results["dest"] = list(csv.DictReader(f))
         except FileNotFoundError as err:
             missing=Path(err.filename)
@@ -62,7 +62,7 @@ def call_files(call_key_list=None):
 
     if "bad" in call_key_list:
         try:
-            with open(CSV_DIR / "offers_bad.csv", newline="", encoding="utf-8") as f: 
+            with open(CSV_DIR / "offers_bad.csv", newline="", encoding="utf-8-sig") as f: 
                 results["bad"] = list(csv.DictReader(f))
         except FileNotFoundError as err:
             missing=Path(err.filename)
@@ -70,7 +70,7 @@ def call_files(call_key_list=None):
 
     if "off" in call_key_list:
         try:
-            with open(CSV_DIR / "offers.csv", newline="", encoding="utf-8") as f: 
+            with open(CSV_DIR / "offers.csv", newline="", encoding="utf-8-sig") as f: 
                 results["off"] = list(csv.DictReader(f))
         except FileNotFoundError as err:
             missing=Path(err.filename)

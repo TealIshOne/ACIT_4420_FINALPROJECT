@@ -31,9 +31,12 @@ def booked_seats():
     file = OUT_DIR /"bookings.json"
     counts={}
     if file.exists():
-        with open(file, encoding="utf-8") as f:
-            for b in json.load(f):
-                counts[b["offer_id"]]= counts.get(b["offer_id"],0)+1
+        try:
+            with open(file, encoding="utf-8") as f:
+                for b in json.load(f):
+                    counts[b["offer_id"]]= counts.get(b["offer_id"],0)+1
+        except (json.JSONDecodeError, KeyError, TypeError) as err:
+            raise BookingError("booking.json", "file is broken, fix or delete it") from err
     return counts
 
 def show_profiles(profiles=None):
@@ -87,7 +90,7 @@ def ask_travel_date(date_time=None):
             datetime.strptime(date_input, "%B %d %Y")
             return date_input
         except ValueError:
-            print("invalid date format, please enter in month dd, yyyy format.")
+            print("invalid date format, please enter in month dd yyyy format.")
 
 
 def ask_departure_time(departure_time=None):
@@ -179,8 +182,11 @@ def save_booking(booking):
     bookings=[]
 
     if file.exists():
-        with open(file, encoding="utf-8") as f:
-            bookings = json.load(f)
+        try:
+            with open(file, encoding="utf-8") as f:
+                bookings = json.load(f)
+        except(json.JSONDecodeError, KeyError, TypeError) as err:                  
+            raise BookingError("bookings.json", "file is broken, fix or delete it") from err 
     offer = booking.chosen_offer
     bookings.append( {
         "booking_ref": booking.booking_ref,

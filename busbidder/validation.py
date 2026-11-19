@@ -47,8 +47,12 @@ ALL_DESTINATION_IDS=[
     "CAD"
     ]
 
-ALL_COMPANY_IDS=[c["company_id"] for c in call_files(["comp"])["comp"]]
-
+ALL_COMPANY_IDS=[
+    "solruta",
+    "camino",
+    "costalink",
+    "verdebus",
+    "nochevia"]
 ##decorator
 
 OFFER_CHECKS = []
@@ -146,7 +150,7 @@ def check_stars(offer):
 @offer_checks
 def check_seats(offer):
     '''
-    checks for <=0 seats,
+    checks for <1 seats,
     '''
     remaining_seats=offer.seats_available
     if remaining_seats<1:

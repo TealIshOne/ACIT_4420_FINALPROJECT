@@ -2,13 +2,14 @@
 from dataclasses import dataclass, field
 from datetime import datetime
 import re
+from busbidder.errors import WeightsError
 
 
 ##helper function
 def yes_no(text):
-    if text == "yes":
+    if text == "yes".lower():
         return True
-    if text== "no":
+    if text== "no".lower():
         return False
     raise ValueError(f"expected yes/no, got '{text}'")
 
@@ -93,32 +94,46 @@ class Traveller:
     travel_date: str= None
 
     def weights_ok(self):
-        for key in self.weights:
+        for key, value in self.weights.items():
             if key not in WEIGHT_TYPES:
-                raise ValueError(f"invalid weight: {key}")
-        return sum(self.weights.values()) == 100
+                raise WeightsError(key, f"unknown weight in profiles.json: {key}")
+            if not isinstance(value,(int,float)):
+                raise WeightsError(key, f"weight must be a number, got {value!r}")
+        if sum(self.weights.values()) != 100:
+            raise WeightsError("total", "weight must add up to 100")
 
     def hard_limits_ok(self):
         for key in self.hard_limits:
             if key not in HARD_LIMITS_TYPES:
-                raise ValueError(f"invalid hard limit: {key}")
+                raise WeightsError(key,f"invalid hard limit in profile.json: {key}")
         return True
 
     def departure_time_ok(self):
         try:
             datetime.strptime(self.preferred_departure, "%H:%M")
             return True
-        except ValueError:
-            raise ValueError(f"invalid departure time: {self.preferred_departure}")
+        except (ValueError,TypeError):
+            raise WeightsError(f"invalid prefered departure:", f"must be HH:MM {self.preferred_departure!r}")
+ 
     @classmethod
     def from_profile(cls, profile_name, profiles):
         profile=profiles[profile_name]
-        return cls(
-            profile_name=profile_name,
-            hard_limits=profile["hard_limits"],
-            weights=profile["weights"],
-            preferred_departure=profile["preferred_departure"]
-        )
+        try:
+
+            traveller = cls(
+                profile_name=profile_name,
+                hard_limits=profile["hard_limits"],
+                weights=profile["weights"],
+                preferred_departure=profile["preferred_departure"]
+            )
+        except KeyError as err:
+            raise WeightsError(profile_name, f"profile is missing {err}") from err
+
+        traveller.weights_ok()
+        traveller.hard_limits_ok()
+        traveller.departure_time_ok()
+        return traveller
+
 
 @dataclass
 class Booking:
