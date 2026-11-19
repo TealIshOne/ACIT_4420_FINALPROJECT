@@ -1,3 +1,8 @@
+python -m venv .venv
+
+.venv\Scripts\python -m pip install -r
+requirements.txt
+
 | Candidate_nr | Class    | date       |
 | ------------ | -------- | ---------- |
 | 870          | ACIT4420 | 20.11.2026 |
@@ -35,6 +40,10 @@ Only standard libraries, pluss pytest for test cases
 git clone  https://https://github.com/TealIshOne/ACIT_4420_FINALPROJECT.git 
 
 cd ACIT_4420_FINALPROJECT
+
+python -m venv .venv
+
+.venv\Scripts\python -m pip install -r requirements.txt
 ```
 
 **From the project folder:**
