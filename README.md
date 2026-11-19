@@ -18,10 +18,6 @@ The program uses the datafiles to valdiate, filter and rate  travle offers based
 6. lets the travle book offerts/ change travle profile and logs data without exiting and restarting program.
 7. exiting program can be done in 'start' menue by hititng corresponding key, or at any point with keyboardinterupt.
 
-
-
-
-
 # Requirments
 
 - Python 3.14
@@ -41,13 +37,11 @@ git clone  https://https://github.com/TealIshOne/ACIT_4420_FINALPROJECT.git
 cd ACIT_4420_FINALPROJECT
 ```
 
-
 **From the project folder:**
 
 ```Python
 python -m busbidder
 ```
-
 
 # Tests
 
@@ -73,7 +67,6 @@ data\offers_bad.csv		// this file contains only bad offers, meaning they should 
 
 data\offers.csv			// this file contains only good offers, meaning they should all remaina after validation
 
-
 # Output Files
 
 the code has two logging/output directories, one is \logs with data provided through logger functions and \outputs containing manual logging of bookings
@@ -86,13 +79,10 @@ logs\bussbidder_reject_offers.log	// this function stores rejected (bad) offers 
 
 logs\busbidder.log		// this log file takes only crash warnings for missing files as defined in main
 
-
-
 # Limitations
 
-
 1. One  of the main limitations of the system is that the user can only book one seat/offer at a time, however the program is not destigned for group bookings.
-2. There is no way to cael or change a booking once it is chosen, and payment is simulated.
+2. There is no way to cancel or change a booking once it is chosen, and payment is simulated.
 3. Seats are counted in program and are not changed in the datafiles. The seat count is stored in outputs/bookings.json, so if this file is deleated the seats return to default based ont eh datafiles.
 4. One destination per booking, multi-city travle is not an option.
 5. Travler profiles are fixed and cannot be changed in program, can only be changed by ammending the file itself.
@@ -100,7 +90,6 @@ logs\busbidder.log		// this log file takes only crash warnings for missing files
 7. Stars (customer_rating) is checked but never used in the scoring
 8. 'Flexibility only looks at 'changable' not 'refundable'
 9. only top 5 offers are shown, this limits the users choices. Thos value was chosen for readability and is a single digit code change.
-
 
 # Possible unfair outcomes
 
