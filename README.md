@@ -46,11 +46,7 @@ python -m busbidder
 # Tests
 
 ```Python
-python -m tests.test_loader
-python -m tests.test_validation
-python -m tests.test_filters
-python -m tests.test_ranking
-python -m tests.test_boundary
+python -m pytest -v
 ```
 
 # Input Files

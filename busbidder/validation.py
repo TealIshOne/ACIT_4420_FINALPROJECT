@@ -93,7 +93,7 @@ def check_unique_id(row, seen_ids):
     '''
     offer_id=row["offer_id"]
     if offer_id in seen_ids:
-        raise InvalidIdentifierError (offer_id, "duplicate offer_id")
+        raise InvalidOfferError(offer_id, "duplicate offer_id")
     seen_ids.add(offer_id)
 
 
@@ -150,7 +150,7 @@ def check_seats(offer):
     '''
     remaining_seats=offer.seats_available
     if remaining_seats<1:
-        raise InvalidOfferError(offer.offer_id, f"to few seats: {remaining_seats}")
+        raise InvalidOfferError(offer.offer_id, f"too few seats: {remaining_seats}")
 
 @offer_checks
 def check_transfers(offer):

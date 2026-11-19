@@ -14,7 +14,7 @@ def make_row(**changes):
     return row
 
 
-def test_starts_1_and_5():
+def test_stars_1_and_5():
     valid, rejected = validate_offers([make_row(stars="1"), make_row(offer_id="OF-8001", stars="5")])
     assert len(valid) ==2
 
