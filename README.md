@@ -86,7 +86,7 @@ logs\busbidder.log		// this log file takes only crash warnings for missing files
 
 # Limitations
 
-1. One major limitation is the limited number of offers given in offers.csv. This mean  the user may find it difficult to find an available offer if they are not familiar with the available offers.
+1. One major limitation is the limited number of offers given in offers.csv. This mean  the user may find it difficult to find an available offer if they are not familiar with the available offers. The offers available remain between July 12 2026 and July 14 2026.
 2. One  of the main limitations of the system is that the user can only book one seat/offer at a time, however the program is not destigned for group bookings.
 3. There is no way to cancel or change a booking once it is chosen, and payment is simulated.
 4. Seats are counted in program and are not changed in the datafiles. The seat count is stored in outputs/bookings.json, so if this file is deleated the seats return to default based ont eh datafiles.
